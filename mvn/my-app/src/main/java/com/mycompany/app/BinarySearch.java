@@ -6,7 +6,7 @@ public class BinarySearch{
      * @param numbersArray
      */
     public BinarySearch(int[] numbersArray){
-        numbers = NumbersArray;
+        numbers = numbersArray;
     }
 
     /**
@@ -17,8 +17,14 @@ public class BinarySearch{
     public int searchNumber(int searchedNumber){
         return searchNumberRekursiv(searchedNumber, 0,numbers.length);
     }
-
-    private int searchNumberRekursiv(int searchedNumber, int formIndex, int toIndex){
-        if()
+    private int searchNumberRekursiv(int searchedNumber, int fromIndex, int toIndex){
+        int middle = ((int)(fromIndex - toIndex)/2) + fromIndex;
+        if(numbers[middle]>searchedNumber){
+            return searchNumberRekursiv(searchedNumber,fromIndex,middle-1);
+        }else if(numbers[middle]<searchedNumber){
+            return searchNumberRekursiv(searchedNumber,middle+1,toIndex);
+        }else if(numbers[middle]==searchedNumber)return middle;
+        else return -1;
     }
+
 }
