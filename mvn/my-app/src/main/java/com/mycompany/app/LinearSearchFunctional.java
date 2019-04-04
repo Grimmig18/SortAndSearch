@@ -18,9 +18,21 @@ public class LinearSearchFunctional
         zSearchArray = pSearchArray;
     }
 
-    public int search()
+    public int search(int pSearchElement)
     {
+        for (int i = 0; i < zSearchArray.length; i++)
+        {
+            if(zSearchArray[i] == pSearchElement)
+            {
+                return i;
+            }
+        }
 
         return -1;
+    }
+
+    public int functionalSearch(int pSearchElement)
+    {
+        return 0;
     }
 }
