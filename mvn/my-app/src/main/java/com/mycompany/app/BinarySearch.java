@@ -15,17 +15,16 @@ public class BinarySearch{
      * @return index of the searched number in the array
      */
     public int searchNumber(int searchedNumber){
-        //return searchNumberRekursiv(searchedNumber, 0,numbers.length);
-        return 0;
+        return searchNumberRekursiv(searchedNumber, 0,numbers.length);
     }
-    /*
     private int searchNumberRekursiv(int searchedNumber, int fromIndex, int toIndex){
         int middle = ((int)(fromIndex - toIndex)/2) + fromIndex;
         if(numbers[middle]>searchedNumber){
-            searchNumberRekursiv(searchedNumber,0,middle);
+            return searchNumberRekursiv(searchedNumber,fromIndex,middle-1);
         }else if(numbers[middle]<searchedNumber){
-            searchedNumberRekursiv(searchedNumber,middle,)
-        }
+            return searchNumberRekursiv(searchedNumber,middle+1,toIndex);
+        }else if(numbers[middle]==searchedNumber)return middle;
+        else return -1;
     }
-     */
+
 }
