@@ -1,19 +1,11 @@
 package com.mycompany.app;
 
-/**
- * SortAndSearch
- * <p>
- * Copyright by @author Marcel Mertens
- * Website: https://mertens-web.ddns.net
- * <p>
- * Date: 04.04.2019
- */
-public class LinearSearchFunctional
+public class LinearSearch
 {
 
     private int[] zSearchArray;
 
-    public LinearSearchFunctional(int[] pSearchArray)
+    public LinearSearch(int[] pSearchArray)
     {
         zSearchArray = pSearchArray;
     }
@@ -29,10 +21,5 @@ public class LinearSearchFunctional
         }
 
         return -1;
-    }
-
-    public int functionalSearch(int pSearchElement)
-    {
-        return 0;
     }
 }
