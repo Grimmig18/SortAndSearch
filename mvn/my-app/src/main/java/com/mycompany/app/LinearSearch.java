@@ -2,7 +2,6 @@ package com.mycompany.app;
 
 public class LinearSearch
 {
-
     private int[] zSearchArray;
 
     public LinearSearch(int[] pSearchArray)
