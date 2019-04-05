@@ -18,7 +18,12 @@ public class LinearSearchMulti
 
     public int search(int pSearchElement)
     {
+        Thread[] lThreadarray = new Thread[zThreads];
 
+        for(int i = 0; i < zThreads; i++)
+        {
+            //lThreadarray[i] = new Thread(new LinearSearcher(zSearchArray, pSearchElement, ));
+        }
 
 
         return -1;
