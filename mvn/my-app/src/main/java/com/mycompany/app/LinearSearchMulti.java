@@ -18,17 +18,19 @@ public class LinearSearchMulti
 
     public int search(int pSearchElement)
     {
-        Thread[] lThreadarray = new Thread[zThreads];
+        Thread[] lThreadArray = new Thread[zThreads];
+        LinearSearcher[] lLinearsearcherArray = new LinearSearcher[zThreads];
 
         for(int i = 0; i < zThreads; i++)
         {
             //Array aufsplitten in anzahl an Teile wie Threads
 
-            //lThreadarray[i] = new Thread(new LinearSearcher(zSearchArray, pSearchElement, 1,2));
-            //lThreadarray[i].start();
+            lLinearsearcherArray[i] = new LinearSearcher(zSearchArray, pSearchElement, 1,2);
+            lThreadArray[i] = new Thread(lLinearsearcherArray[i]);
+            lThreadArray[i].start();
         }
 
 
-        return -1;
+        return lLinearsearcherArray[0].getIndex();
     }
 }
