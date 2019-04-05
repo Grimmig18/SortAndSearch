@@ -29,4 +29,9 @@ public class LinearSearcher implements Runnable
             }
         }
     }
+
+    public int getIndex()
+    {
+        return zIndex.get();
+    }
 }

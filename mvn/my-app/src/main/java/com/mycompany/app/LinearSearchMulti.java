@@ -22,7 +22,10 @@ public class LinearSearchMulti
 
         for(int i = 0; i < zThreads; i++)
         {
-            //lThreadarray[i] = new Thread(new LinearSearcher(zSearchArray, pSearchElement, ));
+            //Array aufsplitten in anzahl an Teile wie Threads
+
+            //lThreadarray[i] = new Thread(new LinearSearcher(zSearchArray, pSearchElement, 1,2));
+            //lThreadarray[i].start();
         }
 
 
