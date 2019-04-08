@@ -1,12 +1,12 @@
 package com.mycompany.app;
-public class BinarySearch{
-    int[] numbers;
+class BinarySearch{
+    private int[] numbers;
 
     /**
      * numbersArray must be a sorted array!
      * @param numbersArray
      */
-    public BinarySearch(int[] numbersArray){
+    BinarySearch(int[] numbersArray){
         numbers = numbersArray;
     }
 
@@ -15,7 +15,7 @@ public class BinarySearch{
      * @param searchedNumber
      * @return index of the searched number in the array
      */
-    public int searchNumber(int searchedNumber){
+    int searchNumber(int searchedNumber){
         return searchNumberRekursiv(searchedNumber, 0,numbers.length);
     }
     private int searchNumberRekursiv(int searchedNumber, int fromIndex, int toIndex){
