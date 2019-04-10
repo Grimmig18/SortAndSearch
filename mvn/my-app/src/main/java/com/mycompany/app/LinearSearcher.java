@@ -29,11 +29,12 @@ public class LinearSearcher implements Runnable
         {
             if(zSearchArray[i] == zSearchElement)
             {
-                //System.out.println("Jup was gefunden");
-                zIndex.getAndSet(i);
+                System.out.print("Jup was gefunden: ");
+                zIndex.set(i);
+                System.out.println(zIndex.get());
             }
 
-            //System.out.println("Nope nix; Index: " + zIndex.get());
+            System.out.println("Nope nix; Index: " + zIndex.get());
         }
 
         zIsReady = true;

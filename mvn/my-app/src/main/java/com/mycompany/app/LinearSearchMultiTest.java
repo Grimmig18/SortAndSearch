@@ -12,7 +12,6 @@ public class LinearSearchMultiTest
 
         LinearSearchMulti searchMulti = new LinearSearchMulti(array, 4);
 
-
         System.out.println(searchMulti.search(1));
 
     }

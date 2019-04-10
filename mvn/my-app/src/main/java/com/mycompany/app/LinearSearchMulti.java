@@ -22,16 +22,24 @@ public class LinearSearchMulti
         LinearSearcher[] lLinearSearcherArray = new LinearSearcher[zThreads];
 
         boolean lIsReady = false;
-        int lScale = zSearchArray.length / zThreads;
+        int lScale = (zSearchArray.length / zThreads);
         System.out.println("Scale: "+lScale);
 
-        for(int i = 0; i < zThreads; i++)
+        int lLastI = 0;
+
+        for(int i = 0; i < (zThreads - 1); i++)
         {
-            lLinearSearcherArray[i] = new LinearSearcher(zSearchArray, pSearchElement, i*lScale, ((i+1)*lScale) < zSearchArray.length ? (i+1)*lScale : zSearchArray.length);
-            //lLinearSearcherArray[i] = new LinearSearcher(zSearchArray, pSearchElement, i*lScale, zSearchArray.length);
+            lLinearSearcherArray[i] = new LinearSearcher(zSearchArray, pSearchElement, lLastI, ((lLastI + lScale) - 1));
             lThreadArray[i] = new Thread(lLinearSearcherArray[i]);
             lThreadArray[i].start();
+
+            lLastI += lScale;
         }
+
+        lLinearSearcherArray[zThreads-1] = new LinearSearcher(zSearchArray, pSearchElement, lLastI, zSearchArray.length);
+
+        lThreadArray[zThreads-1] = new Thread(lLinearSearcherArray[zThreads-1]);
+        lThreadArray[zThreads-1].start();
 
         while(!lIsReady)
         {
@@ -41,8 +49,7 @@ public class LinearSearchMulti
             }
         }
 
-        //return -2;
-        return lLinearSearcherArray[0].getIndex();
+        return lLinearSearcherArray[zThreads-1].getIndex();
     }
 
     private boolean threadsReady(LinearSearcher[] pSearcher)
