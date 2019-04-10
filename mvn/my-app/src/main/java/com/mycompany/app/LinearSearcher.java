@@ -9,6 +9,7 @@ public class LinearSearcher implements Runnable
     private int zStart;
     private int zEnd;
     private int zSearchElement;
+    private boolean zIsReady;
 
     public LinearSearcher(int[] pSearchArray, int pSearchElement, int pStart, int pEnd)
     {
@@ -16,6 +17,9 @@ public class LinearSearcher implements Runnable
         zSearchElement = pSearchElement;
         zStart = pStart;
         zEnd = pEnd;
+        zIsReady = false;
+
+        System.out.println("Element: " + zSearchElement + "; Start:" + zStart + "; End:" + zEnd + "; Index: " + zIndex);
     }
 
     @Override
@@ -25,13 +29,22 @@ public class LinearSearcher implements Runnable
         {
             if(zSearchArray[i] == zSearchElement)
             {
-                zIndex.set(i);
+                //System.out.println("Jup was gefunden");
+                zIndex.getAndSet(i);
             }
+
+            //System.out.println("Nope nix; Index: " + zIndex.get());
         }
+
+        zIsReady = true;
     }
 
     public int getIndex()
     {
         return zIndex.get();
+    }
+
+    public boolean isReady() {
+        return zIsReady;
     }
 }
