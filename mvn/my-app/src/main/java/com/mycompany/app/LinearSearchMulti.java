@@ -22,12 +22,13 @@ public class LinearSearchMulti
         LinearSearcher[] lLinearSearcherArray = new LinearSearcher[zThreads];
 
         boolean lIsReady = false;
-        int lScale = lThreadArray.length / zThreads;
+        int lScale = zSearchArray.length / zThreads;
+        System.out.println("Scale: "+lScale);
 
         for(int i = 0; i < zThreads; i++)
         {
-            //lLinearSearcherArray[i] = new LinearSearcher(zSearchArray, pSearchElement, i*lScale, ((i+1)*lScale) <= zSearchArray.length ? (i+1)*lScale : zSearchArray.length);
-            lLinearSearcherArray[i] = new LinearSearcher(zSearchArray, pSearchElement, i*lScale, zSearchArray.length);
+            lLinearSearcherArray[i] = new LinearSearcher(zSearchArray, pSearchElement, i*lScale, ((i+1)*lScale) < zSearchArray.length ? (i+1)*lScale : zSearchArray.length);
+            //lLinearSearcherArray[i] = new LinearSearcher(zSearchArray, pSearchElement, i*lScale, zSearchArray.length);
             lThreadArray[i] = new Thread(lLinearSearcherArray[i]);
             lThreadArray[i].start();
         }
