@@ -5,7 +5,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class LinearSearcher implements Runnable
 {
     private int[] zSearchArray;
-    AtomicInteger zIndex = new AtomicInteger(-1);
+    static AtomicInteger zIndex = new AtomicInteger(-1);
     private int zStart;
     private int zEnd;
     private int zSearchElement;
