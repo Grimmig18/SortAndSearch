@@ -1,6 +1,6 @@
 package com.mycompany.app;
 
-public class RandomSort {
+class RandomSort {
 
     static int[] sortedArray(int [] array){
         int length = array.length;
